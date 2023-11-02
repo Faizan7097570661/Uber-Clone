@@ -6,15 +6,19 @@
  */
 
 import React from 'react';
-import {StatusBar} from 'react-native';
+import {StatusBar, View} from 'react-native';
 import HomeScreen from './src/Screens/HomeScreen';
+import DestinationSearch from './src/Screens/DestinationSearch';
+import SearchResult from './src/Screens/SearchResult';
 
 function App() {
   return (
-    <>
+    <View style={{backgroundColor: 'white', flex: 1}}>
       <StatusBar barStyle="dark-content" />
-      <HomeScreen/>
-    </>
+      {/* <HomeScreen /> */}
+      {/* <DestinationSearch /> */}
+      <SearchResult/>
+    </View>
   );
 }
 

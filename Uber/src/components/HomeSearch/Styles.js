@@ -41,7 +41,8 @@ const styles = StyleSheet.create({
     destinationText:{
         marginLeft:10,
         fontWeight:'600',
-        fontSize:16
+        fontSize:16,
+        color:'black'
     }
 });
 
