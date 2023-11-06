@@ -24,3 +24,4 @@
 }
 
 @end
+[GMSServices provideAPIKey:@"AIzaSyDFhFUaYpyAjNE4Eq-sWCGWjrr6kyGnhbQ"];

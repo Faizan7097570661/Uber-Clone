@@ -2,9 +2,12 @@ import { View, Text, TextInput, SafeAreaView } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import styles from './styles'
 import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete';
+import PlaceRow from './PlaceRow';
+import { useNavigation } from '@react-navigation/native';
 // import { GooglePlaceData } from 'react-native-google-places-autocomplete';
 
 const DestinationSearch = () => {
+  const navigation=useNavigation()
     const [fromText,setFromText]=useState()
     const [destinationText,setDestinationText]=useState()
     const [originPlace,setOriginPlace]=useState()
@@ -12,28 +15,13 @@ const DestinationSearch = () => {
 
     useEffect(()=>{
        if(originPlace&&destinationPlace){
-        
+        navigation.navigate('SearchResults',{originPlace,destinationPlace})
        }
     },[originPlace,destinationPlace])
   return (
     <SafeAreaView style={{backgroundColor:'black',flex:1}}>
     <View style={styles.container}>
-      {/* <TextInput placeholder='From' style={styles.textInput} value={fromText} onChangeText={setFromText}/>
-      <TextInput placeholder='Where to?' style={styles.textInput} value={destinationText} onChangeText={setDestinationText}/>
-      <GooglePlacesAutocomplete
-      styles={{textInput:styles.textInput}}
-      placeholder='Where to?'
-      onPress={(data:GooglePlaceData, details:GooglePlaceDetail|null=null) => {
-        // setDestinationPlace(value:{data,details});
-        console.log(data, details);
-      }}
-      fetchDetails
-      query={{
-        // key: 'AIzaSyDFhFUaYpyAjNE4Eq-sWCGWjrr6kyGnhbQ',
-        key:'AIzaSyB1KoK7KQe0YzwScTNjC7lHRSi7my056bk',
-        language: 'en',
-      }}
-    /> */}
+   
        <GooglePlacesAutocomplete
           placeholder="Where from?"
           onPress={(data, details = null) => {
@@ -54,7 +42,7 @@ const DestinationSearch = () => {
             key: 'AIzaSyDFhFUaYpyAjNE4Eq-sWCGWjrr6kyGnhbQ',
             language: 'en',
           }}
-        //   renderRow={(data) => <PlaceRow data={data} />}
+          renderRow={(data) => <PlaceRow data={data} />}
         //   renderDescription={(data) => data.description || data.vicinity}
         //   predefinedPlaces={[homePlace, workPlace]}
         //
@@ -80,9 +68,17 @@ const DestinationSearch = () => {
             key: 'AIzaSyDFhFUaYpyAjNE4Eq-sWCGWjrr6kyGnhbQ',
             language: 'en',
           }}
-        //   renderRow={(data) => <PlaceRow data={data} />}
+          renderRow={(data) => <PlaceRow data={data} />}
         />
+        {/* Circle near Origin input */}
+           <View style={styles.circle}/> 
 
+        {/* Line between dots */}
+           <View style={styles.line}/> 
+
+        {/* square near Destination input */}
+           <View style={styles.square}/> 
+    <View></View>
     </View>
     </SafeAreaView>
   )
