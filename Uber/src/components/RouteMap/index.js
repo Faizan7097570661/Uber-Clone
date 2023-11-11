@@ -1,11 +1,10 @@
-import React from "react";
+import React from 'react';
 import MapView, {PROVIDER_GOOGLE, Marker} from 'react-native-maps';
 import MapViewDirections from 'react-native-maps-directions';
 
 const GOOGLE_MAPS_APIKEY = 'AIzaSyDFhFUaYpyAjNE4Eq-sWCGWjrr6kyGnhbQ';
 
-const RouteMap = ({ origin, destination }) => {
-
+const RouteMap = ({origin, destination}) => {
   const originLoc = {
     latitude: origin.details.geometry.location.lat,
     longitude: origin.details.geometry.location.lng,
@@ -34,14 +33,8 @@ const RouteMap = ({ origin, destination }) => {
         strokeWidth={5}
         strokeColor="black"
       />
-      <Marker
-        coordinate={origin}
-        title={'Origin'}
-      />
-      <Marker
-        coordinate={destination}
-        title={"Destination"}
-      />
+      <Marker coordinate={origin} title={'Origin'} />
+      <Marker coordinate={destination} title={'Destination'} />
     </MapView>
   );
 };

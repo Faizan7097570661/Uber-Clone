@@ -6,7 +6,7 @@ import Entypo from 'react-native-vector-icons/Entypo'
 const PlaceRow = ({data}) => {
   return (
     <View style={styles.row}>
-<View style={styles.iconCOntainer}>
+<View style={styles.iconContainer}>
     <Entypo name='location-pin' size={20} color={'white'} />
 </View>
 <Text style={styles.locationText}>

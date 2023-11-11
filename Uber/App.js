@@ -7,12 +7,16 @@
 
 import React, { useEffect } from 'react';
 import {PermissionsAndroid, Platform, StatusBar, View} from 'react-native';
-import Geolocation from '@react-native-community/geolocation';
+// import Geolocation from '@react-native-community/geolocation';
 import HomeScreen from './src/Screens/HomeScreen';
 import DestinationSearch from './src/Screens/DestinationSearch';
 import SearchResult from './src/Screens/SearchResult';
-navigator.geolocation=require("react-native-community/geolocation")
+
+
+// navigator.geolocation=require("react-native-community/geolocation")
+
 function App() {
+  
   const androidPermission=async()=>{
     try {
       const granted = await PermissionsAndroid.request(
@@ -40,9 +44,10 @@ function App() {
   useEffect(()=>{
 if(Platform.OS==='android'){
   androidPermission()
+  
 }else{
   //IOS
-  Geolocation.requestAuthorization();
+  // Geolocation.requestAuthorization();
 }
   },[])
 
